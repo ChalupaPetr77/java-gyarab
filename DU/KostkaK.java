@@ -23,12 +23,22 @@ public class KostkaK {
         }
     }
     
-    private final Matrix matrix = Matrix.createMatrix(3, 3);
-    private int hodnota; 
+    private final Matrix matrix = Matrix.createMatrix(7, 7);
+    private int hodnota;
+    private final int a = 1;
+    private final int b = 3;
+    private final int c = 5;
+
     
     public KostkaK(){
-        matrix.setTitle("kostka");
+        matrix.setTitle("Kostka");
         matrix.showWindow();
+    }
+
+    public KostkaK(int hodnota) {
+        this();
+        this.hodnota = hodnota;
+        rozsvit();
     }
 
     public int getHodnota() {
@@ -46,14 +56,14 @@ public class KostkaK {
         } else {
             matrix.setOff(0, 0);
         }*/
-        matrix.setOnOff(0, 0, hodnota > 3);
-        matrix.setOnOff(0, 2, hodnota > 1);
-        matrix.setOnOff(1, 0, hodnota > 5);
-        matrix.setOnOff(1, 1, hodnota % 2 == 1);
-        matrix.setOnOff(1, 2, hodnota > 5);
-        matrix.setOnOff(2, 0, hodnota > 1);
-        matrix.setOnOff(2, 2, hodnota > 3);
-        matrix.setOnOff(0, 1, hodnota > 7);
-        matrix.setOnOff(2, 1, hodnota > 7);
+        matrix.setOnOff(a, a, hodnota > 3);
+        matrix.setOnOff(a, c, hodnota > 1);
+        matrix.setOnOff(b, a, hodnota > 5);
+        matrix.setOnOff(b, b, hodnota % 2 == 1);
+        matrix.setOnOff(b, c, hodnota > 5);
+        matrix.setOnOff(c, a, hodnota > 1);
+        matrix.setOnOff(c, c, hodnota > 3);
+        matrix.setOnOff(a, b, hodnota > 7);
+        matrix.setOnOff(c, b, hodnota > 7);
     }
 }
